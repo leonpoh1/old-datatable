@@ -297,9 +297,9 @@ table.search-results {
                                                   <select class="form-control" id="assignTo2" name="assignTo2">
                                                       <option value="">Journal Date</option>
                                                       <option>Priority Claim Date</option>
-
                                                   </select>
-                                               
+                                               </div>
+                                               </div>
                                           
                                                   
                                                     <div class="col-sm-4">
@@ -347,24 +347,27 @@ table.search-results {
                                                         <option>10</option>
                                                       </select>
                                                       </div> 
-                                                    </div>
-                                                  </div>
+                                                    </div> 
+                                                   
                                                   
                                                 
               
                                     </br>
                                                                         <!-- Buttons -->
+                                                                    
                               <div class="text-left">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trackselectedIPs">Track Selected IPs</button>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#export">Export</button>
                               </div>
                             </div>
+                          </div>
+                            
                               <script>
-                                function showjustify() {
+                                function showtrackselectedips() {
                                   $("#trackselectedips").toggle();
                                 }
                               
-                                function showremedy() {
+                                function showexport() {
                                   $("#export").toggle();
                                 }
                               </script>
