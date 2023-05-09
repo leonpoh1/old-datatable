@@ -1,1220 +1,914 @@
-/*
- * This combined file was created by the DataTables downloader builder:
- *   https://datatables.net/download
- *
- * To rebuild or modify this file with the latest versions of the included
- * software please visit:
- *   https://datatables.net/download/#bs4/dt-1.10.21/af-2.3.5/b-1.6.2/cr-1.5.2/fc-3.3.1/fh-3.1.7/kt-2.5.2/r-2.2.5/rg-1.1.2/rr-1.2.7/sc-2.0.2/sp-1.1.1/sl-1.3.1
- *
- * Included libraries:
- *   DataTables 1.10.21, AutoFill 2.3.5, Buttons 1.6.2, ColReorder 1.5.2, FixedColumns 3.3.1, FixedHeader 3.1.7, KeyTable 2.5.2, Responsive 2.2.5, RowGroup 1.1.2, RowReorder 1.2.7, Scroller 2.0.2, SearchPanes 1.1.1, Select 1.3.1
- */
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    
+  
+ 
+    <link rel="stylesheet" href="assets/css/bootstrap.css"> 
+    <link rel="stylesheet" href="assets/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">  
+    <link rel="stylesheet" href="assets/css/framework.css"> 
+    <link rel="stylesheet" href="assets/css/custom.css"> 
+    <link rel="stylesheet" href="assets/dropzone/dist/dropzone.css"> 
+     <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link href="assets/css/print.css" rel="stylesheet" media="print"> 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css">
+    <!-- Datatable -->
+    <link rel="stylesheet" href="myassets/DataTables/datatables.css">
+    <!-- Multi Select -->
+    <link rel="stylesheet" href="assets/css/bootstrap-select.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-jWb7GmXgQJQGJUbFJskfO/1+fuSTT88yliDYYikN8WJhtXeNldgEe+Gt98JlBwKjvFyNPg2zPXX+H8tjoClXbQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-table.dataTable {
-  clear: both;
-  margin-top: 6px !important;
-  margin-bottom: 6px !important;
-  max-width: none !important;
-  border-collapse: separate !important;
-  border-spacing: 0;
-}
-table.dataTable td,
-table.dataTable th {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-}
-table.dataTable td.dataTables_empty,
-table.dataTable th.dataTables_empty {
-  text-align: center;
-}
-table.dataTable.nowrap th,
-table.dataTable.nowrap td {
-  white-space: nowrap;
-}
+    <link rel="stylesheet" href="./IP4SG - An eServices Portal by IPOS_files/bootstrap-select.min.css">
+    <link rel="stylesheet" href="./IP4SG - An eServices Portal by IPOS_files/style.css"> 
+    <link rel="stylesheet" href="./IP4SG - An eServices Portal by IPOS_files/bootstrap.min.css">
+    
+    <script src="./IP4SG - An eServices Portal by IPOS_files/bootstrap.min.js.下载"></script>
 
-div.dataTables_wrapper div.dataTables_length label {
-  font-weight: normal;
-  text-align: left;
-  white-space: nowrap;
-}
-div.dataTables_wrapper div.dataTables_length select {
-  width: auto;
-  display: inline-block;
-}
-div.dataTables_wrapper div.dataTables_filter {
-  text-align: right;
-}
-div.dataTables_wrapper div.dataTables_filter label {
-  font-weight: normal;
-  white-space: nowrap;
-  text-align: left;
-}
-div.dataTables_wrapper div.dataTables_filter input {
-  margin-left: 0.5em;
-  display: inline-block;
-  width: auto;
-}
-div.dataTables_wrapper div.dataTables_info {
-  padding-top: 0.85em;
-  white-space: nowrap;
-}
-div.dataTables_wrapper div.dataTables_paginate {
-  margin: 0;
-  white-space: nowrap;
-  text-align: right;
-}
-div.dataTables_wrapper div.dataTables_paginate ul.pagination {
-  margin: 2px 0;
-  white-space: nowrap;
-  justify-content: flex-end;
-}
-div.dataTables_wrapper div.dataTables_processing {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  margin-left: -100px;
-  margin-top: -26px;
-  text-align: center;
-  padding: 1em 0;
-}
+<script src="./IP4SG - An eServices Portal by IPOS_files/jquery.min.js.下载"></script>
 
-table.dataTable thead > tr > th.sorting_asc, table.dataTable thead > tr > th.sorting_desc, table.dataTable thead > tr > th.sorting,
-table.dataTable thead > tr > td.sorting_asc,
-table.dataTable thead > tr > td.sorting_desc,
-table.dataTable thead > tr > td.sorting {
-  padding-right: 30px;
-}
-table.dataTable thead > tr > th:active,
-table.dataTable thead > tr > td:active {
-  outline: none;
-}
-table.dataTable thead .sorting,
-table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting_desc,
-table.dataTable thead .sorting_asc_disabled,
-table.dataTable thead .sorting_desc_disabled {
-  cursor: pointer;
-  position: relative;
-}
-table.dataTable thead .sorting:before, table.dataTable thead .sorting:after,
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_asc:after,
-table.dataTable thead .sorting_desc:before,
-table.dataTable thead .sorting_desc:after,
-table.dataTable thead .sorting_asc_disabled:before,
-table.dataTable thead .sorting_asc_disabled:after,
-table.dataTable thead .sorting_desc_disabled:before,
-table.dataTable thead .sorting_desc_disabled:after {
-  position: absolute;
-  bottom: 0.9em;
-  display: block;
-  opacity: 0.3;
-}
-table.dataTable thead .sorting:before,
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_desc:before,
-table.dataTable thead .sorting_asc_disabled:before,
-table.dataTable thead .sorting_desc_disabled:before {
-  right: 1em;
-  content: "\2191";
-}
-table.dataTable thead .sorting:after,
-table.dataTable thead .sorting_asc:after,
-table.dataTable thead .sorting_desc:after,
-table.dataTable thead .sorting_asc_disabled:after,
-table.dataTable thead .sorting_desc_disabled:after {
-  right: 0.5em;
-  content: "\2193";
-}
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_desc:after {
-  opacity: 1;
-}
-table.dataTable thead .sorting_asc_disabled:before,
-table.dataTable thead .sorting_desc_disabled:after {
-  opacity: 0;
-}
-
-div.dataTables_scrollHead table.dataTable {
-  margin-bottom: 0 !important;
-}
-
-div.dataTables_scrollBody table {
-  border-top: none;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-div.dataTables_scrollBody table thead .sorting:before,
-div.dataTables_scrollBody table thead .sorting_asc:before,
-div.dataTables_scrollBody table thead .sorting_desc:before,
-div.dataTables_scrollBody table thead .sorting:after,
-div.dataTables_scrollBody table thead .sorting_asc:after,
-div.dataTables_scrollBody table thead .sorting_desc:after {
-  display: none;
-}
-div.dataTables_scrollBody table tbody tr:first-child th,
-div.dataTables_scrollBody table tbody tr:first-child td {
-  border-top: none;
-}
-
-div.dataTables_scrollFoot > .dataTables_scrollFootInner {
-  box-sizing: content-box;
-}
-div.dataTables_scrollFoot > .dataTables_scrollFootInner > table {
-  margin-top: 0 !important;
-  border-top: none;
-}
-
-@media screen and (max-width: 767px) {
-  div.dataTables_wrapper div.dataTables_length,
-  div.dataTables_wrapper div.dataTables_filter,
-  div.dataTables_wrapper div.dataTables_info,
-  div.dataTables_wrapper div.dataTables_paginate {
-    text-align: center;
-  }
-  div.dataTables_wrapper div.dataTables_paginate ul.pagination {
-    justify-content: center !important;
-  }
-}
-table.dataTable.table-sm > thead > tr > th :not(.sorting_disabled) {
-  padding-right: 20px;
-}
-table.dataTable.table-sm .sorting:before,
-table.dataTable.table-sm .sorting_asc:before,
-table.dataTable.table-sm .sorting_desc:before {
-  top: 5px;
-  right: 0.85em;
-}
-table.dataTable.table-sm .sorting:after,
-table.dataTable.table-sm .sorting_asc:after,
-table.dataTable.table-sm .sorting_desc:after {
-  top: 5px;
-}
-
-table.table-bordered.dataTable {
-  border-right-width: 0;
-}
-table.table-bordered.dataTable th,
-table.table-bordered.dataTable td {
-  border-left-width: 0;
-}
-table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child,
-table.table-bordered.dataTable td:last-child,
-table.table-bordered.dataTable td:last-child {
-  border-right-width: 1px;
-}
-table.table-bordered.dataTable tbody th,
-table.table-bordered.dataTable tbody td {
-  border-bottom-width: 0;
-}
-
-div.dataTables_scrollHead table.table-bordered {
-  border-bottom-width: 0;
-}
-
-div.table-responsive > div.dataTables_wrapper > div.row {
-  margin: 0;
-}
-div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:first-child {
-  padding-left: 0;
-}
-div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:last-child {
-  padding-right: 0;
-}
-
-
-div.dt-autofill-handle{position:absolute;height:8px;width:8px;z-index:102;box-sizing:border-box;background:#0275d8;cursor:pointer}div.dtk-focus-alt div.dt-autofill-handle{background:#ff8b33}div.dt-autofill-select{position:absolute;z-index:1001;background-color:#0275d8;background-image:repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(255,255,255,0.5) 5px, rgba(255,255,255,0.5) 10px)}div.dt-autofill-select.top,div.dt-autofill-select.bottom{height:3px;margin-top:-1px}div.dt-autofill-select.left,div.dt-autofill-select.right{width:3px;margin-left:-1px}div.dt-autofill-list{position:fixed;top:50%;left:50%;width:500px;margin-left:-250px;background-color:white;border-radius:6px;box-shadow:0 0 5px #555;border:2px solid #444;z-index:11;box-sizing:border-box;padding:1.5em 2em}div.dt-autofill-list ul{display:table;margin:0;padding:0;list-style:none;width:100%}div.dt-autofill-list ul li{display:table-row}div.dt-autofill-list ul li:last-child div.dt-autofill-question,div.dt-autofill-list ul li:last-child div.dt-autofill-button{border-bottom:none}div.dt-autofill-list ul li:hover{background-color:#f6f6f6}div.dt-autofill-list div.dt-autofill-question{display:table-cell;padding:0.5em 0;border-bottom:1px solid #ccc}div.dt-autofill-list div.dt-autofill-question input[type=number]{padding:6px;width:30px;margin:-2px 0}div.dt-autofill-list div.dt-autofill-button{display:table-cell;padding:0.5em 0;border-bottom:1px solid #ccc}div.dt-autofill-background{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);background:radial-gradient(ellipse farthest-corner at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);z-index:10}div.dt-autofill-list div.dt-autofill-question input[type=number]{padding:6px;width:60px;margin:-2px 0}
-
-
-@keyframes dtb-spinner {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@-o-keyframes dtb-spinner {
-  100% {
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-ms-keyframes dtb-spinner {
-  100% {
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes dtb-spinner {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-moz-keyframes dtb-spinner {
-  100% {
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-div.dt-button-info {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  margin-top: -100px;
-  margin-left: -200px;
-  background-color: white;
-  border: 2px solid #111;
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
-  text-align: center;
-  z-index: 21;
-}
-div.dt-button-info h2 {
-  padding: 0.5em;
-  margin: 0;
-  font-weight: normal;
-  border-bottom: 1px solid #ddd;
-  background-color: #f3f3f3;
-}
-div.dt-button-info > div {
-  padding: 1em;
-}
-
-div.dt-button-collection-title {
-  text-align: center;
-  padding: 0.3em 0 0.5em;
-  font-size: 0.9em;
-}
-
-div.dt-button-collection-title:empty {
-  display: none;
-}
-
-div.dt-button-collection {
-  position: absolute;
-  z-index: 2001;
-}
-div.dt-button-collection div.dropdown-menu {
-  display: block;
-  z-index: 2002;
-  min-width: 100%;
-}
-div.dt-button-collection div.dt-button-collection-title {
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-div.dt-button-collection.fixed {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-left: -75px;
-  border-radius: 0;
-}
-div.dt-button-collection.fixed.two-column {
-  margin-left: -200px;
-}
-div.dt-button-collection.fixed.three-column {
-  margin-left: -225px;
-}
-div.dt-button-collection.fixed.four-column {
-  margin-left: -300px;
-}
-div.dt-button-collection > :last-child {
-  display: block !important;
-  -webkit-column-gap: 8px;
-  -moz-column-gap: 8px;
-  -ms-column-gap: 8px;
-  -o-column-gap: 8px;
-  column-gap: 8px;
-}
-div.dt-button-collection > :last-child > * {
-  -webkit-column-break-inside: avoid;
-  break-inside: avoid;
-}
-div.dt-button-collection.two-column {
-  width: 400px;
-}
-div.dt-button-collection.two-column > :last-child {
-  padding-bottom: 1px;
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  -ms-column-count: 2;
-  -o-column-count: 2;
-  column-count: 2;
-}
-div.dt-button-collection.three-column {
-  width: 450px;
-}
-div.dt-button-collection.three-column > :last-child {
-  padding-bottom: 1px;
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  -ms-column-count: 3;
-  -o-column-count: 3;
-  column-count: 3;
-}
-div.dt-button-collection.four-column {
-  width: 600px;
-}
-div.dt-button-collection.four-column > :last-child {
-  padding-bottom: 1px;
-  -webkit-column-count: 4;
-  -moz-column-count: 4;
-  -ms-column-count: 4;
-  -o-column-count: 4;
-  column-count: 4;
-}
-div.dt-button-collection .dt-button {
-  border-radius: 0;
-}
-div.dt-button-collection.fixed {
-  max-width: none;
-}
-div.dt-button-collection.fixed:before, div.dt-button-collection.fixed:after {
-  display: none;
-}
-
-div.dt-button-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-}
-
-@media screen and (max-width: 767px) {
-  div.dt-buttons {
-    float: none;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0.5em;
-  }
-  div.dt-buttons a.btn {
-    float: none;
-  }
-}
-div.dt-buttons button.btn.processing,
-div.dt-buttons div.btn.processing,
-div.dt-buttons a.btn.processing {
-  color: rgba(0, 0, 0, 0.2);
-}
-div.dt-buttons button.btn.processing:after,
-div.dt-buttons div.btn.processing:after,
-div.dt-buttons a.btn.processing:after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 16px;
-  height: 16px;
-  margin: -8px 0 0 -8px;
-  box-sizing: border-box;
-  display: block;
-  content: ' ';
-  border: 2px solid #282828;
-  border-radius: 50%;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  animation: dtb-spinner 1500ms infinite linear;
-  -o-animation: dtb-spinner 1500ms infinite linear;
-  -ms-animation: dtb-spinner 1500ms infinite linear;
-  -webkit-animation: dtb-spinner 1500ms infinite linear;
-  -moz-animation: dtb-spinner 1500ms infinite linear;
-}
-
-
-table.DTCR_clonedTable.dataTable {
-  position: absolute !important;
-  background-color: rgba(255, 255, 255, 0.7);
-  z-index: 202;
-}
-
-div.DTCR_pointer {
-  width: 1px;
-  background-color: #0275d8;
-  z-index: 201;
-}
-
-
-table.DTFC_Cloned tr {
-  background-color: white;
-  margin-bottom: 0;
-}
-
-div.DTFC_LeftHeadWrapper table,
-div.DTFC_RightHeadWrapper table {
-  border-bottom: none !important;
-  margin-bottom: 0 !important;
-  background-color: white;
-}
-
-div.DTFC_LeftBodyWrapper table,
-div.DTFC_RightBodyWrapper table {
-  border-top: none;
-  margin: 0 !important;
-  z-index: 2;
-}
-div.DTFC_LeftBodyWrapper table thead .sorting:before, div.DTFC_LeftBodyWrapper table thead .sorting:after,
-div.DTFC_LeftBodyWrapper table thead .sorting_asc:before,
-div.DTFC_LeftBodyWrapper table thead .sorting_asc:after,
-div.DTFC_LeftBodyWrapper table thead .sorting_desc:before,
-div.DTFC_LeftBodyWrapper table thead .sorting_desc:after,
-div.DTFC_LeftBodyWrapper table thead .sorting:before,
-div.DTFC_LeftBodyWrapper table thead .sorting:after,
-div.DTFC_LeftBodyWrapper table thead .sorting_asc:before,
-div.DTFC_LeftBodyWrapper table thead .sorting_asc:after,
-div.DTFC_LeftBodyWrapper table thead .sorting_desc:before,
-div.DTFC_LeftBodyWrapper table thead .sorting_desc:after,
-div.DTFC_RightBodyWrapper table thead .sorting:before,
-div.DTFC_RightBodyWrapper table thead .sorting:after,
-div.DTFC_RightBodyWrapper table thead .sorting_asc:before,
-div.DTFC_RightBodyWrapper table thead .sorting_asc:after,
-div.DTFC_RightBodyWrapper table thead .sorting_desc:before,
-div.DTFC_RightBodyWrapper table thead .sorting_desc:after,
-div.DTFC_RightBodyWrapper table thead .sorting:before,
-div.DTFC_RightBodyWrapper table thead .sorting:after,
-div.DTFC_RightBodyWrapper table thead .sorting_asc:before,
-div.DTFC_RightBodyWrapper table thead .sorting_asc:after,
-div.DTFC_RightBodyWrapper table thead .sorting_desc:before,
-div.DTFC_RightBodyWrapper table thead .sorting_desc:after {
-  display: none;
-}
-div.DTFC_LeftBodyWrapper table tbody tr:first-child th,
-div.DTFC_LeftBodyWrapper table tbody tr:first-child td,
-div.DTFC_RightBodyWrapper table tbody tr:first-child th,
-div.DTFC_RightBodyWrapper table tbody tr:first-child td {
-  border-top: none;
-}
-
-div.DTFC_LeftFootWrapper table,
-div.DTFC_RightFootWrapper table {
-  border-top: none;
-  margin-top: 0 !important;
-  background-color: white;
-}
-
-div.DTFC_Blocker {
-  background-color: white;
-}
-
-table.dataTable.table-striped.DTFC_Cloned tbody {
-  background-color: white;
-}
-
-
-table.dataTable.fixedHeader-floating,
-table.dataTable.fixedHeader-locked {
-  background-color: white;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-table.dataTable.fixedHeader-floating {
-  position: fixed !important;
-}
-
-table.dataTable.fixedHeader-locked {
-  position: absolute !important;
-}
-
-@media print {
-  table.fixedHeader-floating {
-    display: none;
-  }
-}
-
-
-table.dataTable tbody th.focus,
-table.dataTable tbody td.focus {
-  box-shadow: inset 0 0 1px 2px #0275d8;
-}
-
-div.dtk-focus-alt table.dataTable tbody th.focus,
-div.dtk-focus-alt table.dataTable tbody td.focus {
-  box-shadow: inset 0 0 1px 2px #ff8b33;
-}
-
-
-table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
-table.dataTable.dtr-inline.collapsed > tbody > tr > th.child,
-table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
-  cursor: default !important;
-}
-table.dataTable.dtr-inline.collapsed > tbody > tr > td.child:before,
-table.dataTable.dtr-inline.collapsed > tbody > tr > th.child:before,
-table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty:before {
-  display: none !important;
-}
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td.dtr-control,
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th.dtr-control {
-  position: relative;
-  padding-left: 30px;
-  cursor: pointer;
-}
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td.dtr-control:before,
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th.dtr-control:before {
-  top: 50%;
-  left: 5px;
-  height: 14px;
-  width: 14px;
-  margin-top: -9px;
-  display: block;
-  position: absolute;
-  color: white;
-  border: 2px solid white;
-  border-radius: 14px;
-  box-shadow: 0 0 3px #444;
-  box-sizing: content-box;
-  text-align: center;
-  text-indent: 0 !important;
-  font-family: 'Courier New', Courier, monospace;
-  line-height: 14px;
-  content: '+';
-  background-color: #0275d8;
-}
-table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td.dtr-control:before,
-table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th.dtr-control:before {
-  content: '-';
-  background-color: #d33333;
-}
-table.dataTable.dtr-inline.collapsed.compact > tbody > tr > td.dtr-control,
-table.dataTable.dtr-inline.collapsed.compact > tbody > tr > th.dtr-control {
-  padding-left: 27px;
-}
-table.dataTable.dtr-inline.collapsed.compact > tbody > tr > td.dtr-control:before,
-table.dataTable.dtr-inline.collapsed.compact > tbody > tr > th.dtr-control:before {
-  left: 4px;
-  height: 14px;
-  width: 14px;
-  border-radius: 14px;
-  line-height: 14px;
-  text-indent: 3px;
-}
-table.dataTable.dtr-column > tbody > tr > td.control,
-table.dataTable.dtr-column > tbody > tr > th.control {
-  position: relative;
-  cursor: pointer;
-}
-table.dataTable.dtr-column > tbody > tr > td.control:before,
-table.dataTable.dtr-column > tbody > tr > th.control:before {
-  top: 50%;
-  left: 50%;
-  height: 16px;
-  width: 16px;
-  margin-top: -10px;
-  margin-left: -10px;
-  display: block;
-  position: absolute;
-  color: white;
-  border: 2px solid white;
-  border-radius: 14px;
-  box-shadow: 0 0 3px #444;
-  box-sizing: content-box;
-  text-align: center;
-  text-indent: 0 !important;
-  font-family: 'Courier New', Courier, monospace;
-  line-height: 14px;
-  content: '+';
-  background-color: #0275d8;
-}
-table.dataTable.dtr-column > tbody > tr.parent td.control:before,
-table.dataTable.dtr-column > tbody > tr.parent th.control:before {
-  content: '-';
-  background-color: #d33333;
-}
-table.dataTable > tbody > tr.child {
-  padding: 0.5em 1em;
-}
-table.dataTable > tbody > tr.child:hover {
-  background: transparent !important;
-}
-table.dataTable > tbody > tr.child ul.dtr-details {
-  display: inline-block;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-table.dataTable > tbody > tr.child ul.dtr-details > li {
-  border-bottom: 1px solid #efefef;
-  padding: 0.5em 0;
-}
-table.dataTable > tbody > tr.child ul.dtr-details > li:first-child {
-  padding-top: 0;
-}
-table.dataTable > tbody > tr.child ul.dtr-details > li:last-child {
-  border-bottom: none;
-}
-table.dataTable > tbody > tr.child span.dtr-title {
-  display: inline-block;
-  min-width: 75px;
+    
+    <style>
+      ul {
+         list-style: none outside none;
+         margin-left: 0px;
+       }
+      ul li a {
+       font-size: 1.2rem; 
+        margin: 0 0 0 1rem;
+       padding: 0;
+       border-bottom: none;
+      } 
+      .form-control {
+       height: 2.8rem;
+    margin-top: 5px;
+    padding: 0.375rem 0.75rem;
+}
+       
+      .search-selection {
+       background: #fafafa;
+       border-radius: 8px;
+       padding: 10px 10px 10px 20px;
+      }
+      .search-selection h5 {
+       margin-bottom: 5px;
+      }
+       .search-selection ul li {
+       margin-bottom: 5px;
+       }
+      .selection-title {
+       margin-bottom: 15px;
+       border-bottom: 1px dotted #d1d1d1;
+       padding-bottom: 15px;
+      }
+      .search-criteria-box {
+       padding:0px 0px 20px 0px;
+      }
+      .search-cateria-title {
+       background: #fafafa;
+       border-radius: 8px;
+      }
+      .search-operation-text {
+       margin-top:5px; 
+       font-size: 1.4rem;
+      }
+      .boolan-text {
+       font-size: 14px;
+       margin-right: 5px;
+       margin-top: 5px;
+       margin-bottom: 3px;
+      }
+      .switch {
+       position: relative;
+       display: inline-block;
+       width: 42px;
+       height: 20px;
+       float: right;
+       margin-top: 5px;
+       }
+      .panel-action {
+       float: none;
+       margin: 2rem 2rem 3rem 0;
+       }
+       .adv-field-row {
+         margin: 5px 0px;
+         padding: 4px 0px;
+         border-bottom: 1px solid #eaeaea;
+         font-size: 1.4rem;
+       }
+       .boolOptCls {
+         border: 1px solid #d1d1d1;
+         border-radius: 5px;
+         margin: 10px 0px;
+         }
+         .search-field {
+         border: 1px solid #d1d1d1;
+         border-radius: 5px;
+         margin: 10px 0px;
+         padding: 4px; 
+         }
+         .app-number {
+           padding: 12px 20px;
+         }
+         .remove-row i {
+           margin: 15px 10px 0 10px;
+         }
+         .highlight {
+           background-color: gray;
+         }
+         th {
+  visibility: hidden;
+}
+.bold-label {
   font-weight: bold;
 }
-
-div.dtr-modal {
-  position: fixed;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 100;
-  padding: 10em 1em;
-}
-div.dtr-modal div.dtr-modal-display {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 50%;
-  height: 50%;
-  overflow: auto;
-  margin: auto;
-  z-index: 102;
-  overflow: auto;
-  background-color: #f5f5f7;
-  border: 1px solid black;
-  border-radius: 0.5em;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-}
-div.dtr-modal div.dtr-modal-content {
-  position: relative;
-  padding: 1em;
-}
-div.dtr-modal div.dtr-modal-close {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 22px;
-  height: 22px;
-  border: 1px solid #eaeaea;
-  background-color: #f9f9f9;
-  text-align: center;
-  border-radius: 3px;
-  cursor: pointer;
-  z-index: 12;
-}
-div.dtr-modal div.dtr-modal-close:hover {
-  background-color: #eaeaea;
-}
-div.dtr-modal div.dtr-modal-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 101;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-@media screen and (max-width: 767px) {
-  div.dtr-modal div.dtr-modal-display {
-    width: 95%;
-  }
-}
-div.dtr-bs-modal table.table tr:first-child td {
-  border-top: none;
-}
-
-table.dataTable.dtr-inline.collapsed.table-sm > tbody > tr > td:first-child:before,
-table.dataTable.dtr-inline.collapsed.table-sm > tbody > tr > th:first-child:before {
-  top: 5px;
-}
-
-
-table.dataTable tr.dtrg-group td {
-  background-color: #e0e0e0;
-}
-
-table.dataTable tr.dtrg-group.dtrg-level-0 td {
-  font-weight: bold;
-}
-
-table.dataTable tr.dtrg-group.dtrg-level-1 td,
-table.dataTable tr.dtrg-group.dtrg-level-2 td {
-  background-color: #f0f0f0;
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
-  padding-left: 2em;
-  font-size: 0.9em;
-}
-
-table.dataTable tr.dtrg-group.dtrg-level-2 td {
-  background-color: #f3f3f3;
-}
-
-
-table.dt-rowReorder-float {
-  position: absolute !important;
-  opacity: 0.8;
-  table-layout: fixed;
-  outline: 2px solid #0275d8;
-  outline-offset: -2px;
-  z-index: 2001;
-}
-
-tr.dt-rowReorder-moving {
-  outline: 2px solid #888;
-  outline-offset: -2px;
-}
-
-body.dt-rowReorder-noOverflow {
+.table-responsive {
   overflow-x: hidden;
+  overflow-y: auto;
 }
-
-table.dataTable td.reorder {
-  text-align: center;
-  cursor: move;
-}
-
-
-div.dts {
-  display: block !important;
-}
-div.dts tbody th,
-div.dts tbody td {
-  white-space: nowrap;
-}
-div.dts div.dts_loading {
-  z-index: 1;
-}
-div.dts div.dts_label {
-  position: absolute;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-  text-align: right;
-  border-radius: 3px;
-  padding: 0.4em;
-  z-index: 2;
-  display: none;
-}
-div.dts div.dataTables_scrollBody {
-  background: repeating-linear-gradient(45deg, #edeeff, #edeeff 10px, white 10px, white 20px);
-}
-div.dts div.dataTables_scrollBody table {
-  z-index: 2;
-}
-div.dts div.dataTables_paginate,
-div.dts div.dataTables_length {
-  display: none;
-}
-
-div.DTS div.dataTables_scrollBody table {
-  background-color: white;
-}
-
-
-div.dtsp-topRow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-content: flex-start;
-  align-items: flex-start;
-}
-div.dtsp-topRow input.dtsp-search {
-  text-overflow: ellipsis;
-}
-div.dtsp-topRow div.dtsp-subRow1 {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 0;
-}
-div.dtsp-topRow div.dtsp-searchCont {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 0;
-}
-div.dtsp-topRow button.dtsp-nameButton {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAABcGlDQ1BpY2MAACiRdZHNSwJBGMYftTDS8FCHkA57sOigIAXRMQzyYh3UIKvL7rirwe66zK6IdA26dBA6RF36OvQf1DXoWhAERRAR9B/0dQnZ3nEFJXSG2ffHs/O8zDwD+DM6M+yBJGCYDs+mU9JaYV0KviNMM4QoEjKzreXcUh59x88jfKI+JESv/vt6jlBRtRngGyKeYxZ3iBeIMzXHErxHPMbKcpH4hDjO6YDEt0JXPH4TXPL4SzDPZxcBv+gplbpY6WJW5gbxNHHM0KusfR5xk7BqruaoRmlNwEYWaaQgQUEVW9DhIEHVpMx6+5It3woq5GH0tVAHJ0cJZfLGSa1SV5WqRrpKU0dd5P4/T1ubnfG6h1PA4Kvrfk4CwX2g2XDd31PXbZ4BgRfg2uz4K5TT/DfpjY4WOwYiO8DlTUdTDoCrXWD82ZK53JICtPyaBnxcACMFYPQeGN7wsmr/x/kTkN+mJ7oDDo+AKdof2fwDCBRoDkL8UccAAAAJcEhZcwAAD2EAAA9hAag/p2kAAAK2SURBVFgJ7ZY9j41BFICvryCExrJBQ6HyEYVEIREaUZDQIRoR2ViJKCioxV+gkVXYTVZEQiEUhG2EQnxUCh0FKolY4ut5XnM2cyfva3Pt5m7EPcmzZ2bemTNnzjkzd1utnvQi0IvAfxiBy5z5FoxO89kPY+8mbMjtzs47RXs5/WVpbAG6bWExt5PuIibvhVkwmC+ck3eK9ln6/fAddFojYzBVuYSBpcnIEvRaqOw2RcaN18FPuJH0JvRUxbT3wWf4ltiKPgfVidWlbGZgPozDFfgAC+EA/K2EI4cwcAJ+gPaeQ+VQU2SOMMGcPgPl/m/V2p50rrbRsRgt9Iv5h6xtpP22Bz7Ce1C+gFFxfKzOmShcU+Qmyh2w3w8rIJfddHTck66EukL/xPhj+JM8rHNmFys0Pg4v0up3aFNlwR9NYyodd3OL/C64zpsymcTFcf6ElM4YzjAWKYrJkaq8kE/yUYNP4BoYvS1QRo+hNtF5xfkTUjoTheukSFFMjlTFm6PjceOca/SMpKfeCR1L6Uzk/y2WIkVhNFJlJAZhP+hYns7b9D3IPuhY5mYrIv8OrQJvR5NYyNaW4jsU8pSGNySiVx4o5tXq3JkoXE/mg5R/M8dGJCJpKhaDcjBRdbI/Rm8g69c122om33BHmj2CHoV5qa9jUXBraJ+G1fAVjIBO1klc87ro1K4JZ/K35SWW3TwcyDd6TecqnAEd8cGq2+w84xvBm1n3vS0izKkkwh5XNC/GmFPqqAtPF89AOScKuemaNzoTV1SD5dtSbmLf1/RV+tC0WTgcj6R7HEtrVGWaqu/lYDZ/2pvxQ/kIyw/gFByHC9AHw910hv1aUUumyd8yy0QfhmEkfiNod0Xusct68J1qc8Tdux0Z97Q+hsDb+AYGYEbF/4Guw2Q/qDPqZG/zXgT+3Qj8AtKnfWhFwmuAAAAAAElFTkSuQmCC");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 23px;
-  vertical-align: bottom;
-}
-div.dtsp-topRow button.dtsp-countButton {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABcGlDQ1BpY2MAACiRdZHNSwJBGMYftTDS8FCHkA57sOigIAXRMQzyYh3UIKvL7rirwe66zK6IdA26dBA6RF36OvQf1DXoWhAERRAR9B/0dQnZ3nEFJXSG2ffHs/O8zDwD+DM6M+yBJGCYDs+mU9JaYV0KviNMM4QoEjKzreXcUh59x88jfKI+JESv/vt6jlBRtRngGyKeYxZ3iBeIMzXHErxHPMbKcpH4hDjO6YDEt0JXPH4TXPL4SzDPZxcBv+gplbpY6WJW5gbxNHHM0KusfR5xk7BqruaoRmlNwEYWaaQgQUEVW9DhIEHVpMx6+5It3woq5GH0tVAHJ0cJZfLGSa1SV5WqRrpKU0dd5P4/T1ubnfG6h1PA4Kvrfk4CwX2g2XDd31PXbZ4BgRfg2uz4K5TT/DfpjY4WOwYiO8DlTUdTDoCrXWD82ZK53JICtPyaBnxcACMFYPQeGN7wsmr/x/kTkN+mJ7oDDo+AKdof2fwDCBRoDkL8UccAAAAJcEhZcwAAD2EAAA9hAag/p2kAAAG5SURBVEgN3VU9LwVBFF0fiYhofUSlEQkKhU7z/oBCQkIiGr9BgUbhVzy9BAnhFyjV/AYFiU5ICM7ZN+c5Zud5dm3lJmfmzrkz9+7cu3c3y/6jjOBSF8CxXS7FmTkbwqIJjDpJvTcmsJ4K3KPZUpyZsx0sxoB9J6mnAkyC7wGuuCFIipNtEcpcWExgXpOBc78vgj6N+QO4NVsjwdFM59tUIDxDrHMBOeIQ34C5ZDregXuAQm4YcI68nN9B3wr2PcwPAIPkN2EqtJH6b+QZm1ajjTx7BqwAr26Lb+C2Kvpbt0Mb2HAJ7NrGFGfmXO3DeA4UshDfQAVmH0gaUFg852TTTDvlxwBlCtxy9zXyBhQFaq0wMmIdRebrfgosA3zb2hKnqG0oqchp4QbuR8X0TjzABhbdOT8jnQ/atcgqpnfwOA7yqZyTU587ZkIGdesLTt2EkynOnbreMUUKMI/dA4B/QVOcO13CQh+5wWCgDwo/75u59odB/wjmfhbgvACcAOyZPHihMWAoIwxyCLgf1oxfgjzVbgBXSTzIN+f0pg6s5DkcesLMRpsBrgE2XO3CN64JFP7JtUeKHX4CKtRRXFZ+7dEAAAAASUVORK5CYII=");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 18px;
-  vertical-align: bottom;
-}
-div.dtsp-topRow button.dtsp-searchIcon {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAABcGlDQ1BpY2MAACiRdZHNSwJBGMYftTDS8FCHkA57sOigIAXRMQzyYh3UIKvL7rirwe66zK6IdA26dBA6RF36OvQf1DXoWhAERRAR9B/0dQnZ3nEFJXSG2ffHs/O8zDwD+DM6M+yBJGCYDs+mU9JaYV0KviNMM4QoEjKzreXcUh59x88jfKI+JESv/vt6jlBRtRngGyKeYxZ3iBeIMzXHErxHPMbKcpH4hDjO6YDEt0JXPH4TXPL4SzDPZxcBv+gplbpY6WJW5gbxNHHM0KusfR5xk7BqruaoRmlNwEYWaaQgQUEVW9DhIEHVpMx6+5It3woq5GH0tVAHJ0cJZfLGSa1SV5WqRrpKU0dd5P4/T1ubnfG6h1PA4Kvrfk4CwX2g2XDd31PXbZ4BgRfg2uz4K5TT/DfpjY4WOwYiO8DlTUdTDoCrXWD82ZK53JICtPyaBnxcACMFYPQeGN7wsmr/x/kTkN+mJ7oDDo+AKdof2fwDCBRoDkL8UccAAAAJcEhZcwAAD2EAAA9hAag/p2kAAAEnSURBVCgVpdG7SgNBFIDh1RhJsBBEsDIgIhaWFjZa2GtpKb6AnU0MprKOWEjK2IuFFxCxS2lhZyOWXh5AQVER/X+zuwwywoIHvp3dM3Nm55Ik/4i+P2or5FewiBIe0cEt8ogVz9LbhEVf+cgkcew1tvAZ5PPXGm9HOMEanMAYQhunaCAazuqA1UjvILl9HGPc/n4fabjPGbzjMM2FjfkDuPw5O8JilzgA9/OKWDynyWnbsPiF7yc4SRWxmEyTN7ZhsSd7gTLW8TuGSSzBcZd2hsV+n+MNC9jGCNzjPDwsz8XCO/x02Bqeptcxhg+4gjD8YxetLOkBGRbuwcIr+NdRLMPl3uMM2YHx2gsLd+D97qKEQuGe65jCAzbgVRWOCUZuovAfs5m/AdVxL0R1AIsLAAAAAElFTkSuQmCC");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 12px;
-}
-
-div.dt-button-collection {
-  z-index: 2002;
-}
-
-div.dataTables_scrollBody {
-  background: white !important;
-}
-
-div.dtsp-columns-1 {
-  min-width: 98%;
-  max-width: 98%;
-  padding-left: 1%;
-  padding-right: 1%;
-  margin: 0px !important;
-}
-
-div.dtsp-columns-2 {
-  min-width: 48%;
-  max-width: 48%;
-  padding-left: 1%;
-  padding-right: 1%;
-  margin: 0px !important;
-}
-
-div.dtsp-columns-3 {
-  min-width: 30.333%;
-  max-width: 30.333%;
-  padding-left: 1%;
-  padding-right: 1%;
-  margin: 0px !important;
-}
-
-div.dtsp-columns-4 {
-  min-width: 23%;
-  max-width: 23%;
-  padding-left: 1%;
-  padding-right: 1%;
-  margin: 0px !important;
-}
-
-div.dtsp-columns-5 {
-  min-width: 18%;
-  max-width: 18%;
-  padding-left: 1%;
-  padding-right: 1%;
-  margin: 0px !important;
-}
-
-div.dtsp-columns-6 {
-  min-width: 15.666%;
-  max-width: 15.666%;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
-  margin: 0px !important;
-}
-
-div.dtsp-columns-7 {
-  min-width: 13.28%;
-  max-width: 13.28%;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
-  margin: 0px !important;
-}
-
-div.dtsp-columns-8 {
-  min-width: 11.5%;
-  max-width: 11.5%;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
-  margin: 0px !important;
-}
-
-div.dtsp-columns-9 {
-  min-width: 11.111%;
-  max-width: 11.111%;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
-  margin: 0px !important;
-}
-
-div.dt-button-collection {
-  float: none;
-}
-
-div.dtsp-panesContainer {
+.tab-pane {
   width: 100%;
+  max-width: 800px; /* set a fixed width for the tab panel */
+  overflow-y: scroll; /* create a vertical scrollbar when necessary */
 }
-
-div.dtsp-searchPanes {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-content: flex-start;
-  align-items: stretch;
-  clear: both;
+.btn {
+    margin-left: 0px; 
+    margin-bottom: 0px; /* Add margin to the right of each button */
+  }
+  .btn:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+  }
+  table tbody tr:hover,
+table tbody tr.highlighted,
+table tbody tr:active {
+  background-color: rgb(212, 212, 212);;
+  cursor: pointer;
 }
-div.dtsp-searchPanes button.btn {
-  margin: 0;
+table tbody tr {
+  height: 50px; /* Set the height to the desired value */
 }
-div.dtsp-searchPanes button.dtsp-clearAll {
-  max-width: 50px;
-}
-
-div.dtsp-searchPane {
-  flex-direction: row;
-  flex-wrap: nowrap;
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 280px;
-  justify-content: space-around;
-  align-content: flex-start;
-  align-items: stretch;
-  padding-top: 0px;
-  padding-bottom: 5px;
-  margin: 5px 0;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-size: 0.9em;
-  margin: 5px;
-}
-div.dtsp-searchPane div.dataTables_wrapper {
-  flex: 1;
-}
-div.dtsp-searchPane div.dataTables_wrapper div.dataTables_filter {
+.hidden {
   display: none;
 }
-div.dtsp-searchPane div.dataTables_wrapper div.row div.col-sm-12:empty {
-  display: none;
-}
-div.dtsp-searchPane div.dataTables_wrapper div.row div.dataTables_filter {
-  display: none;
-}
-div.dtsp-searchPane div.btn-group {
-  padding: 0px;
-}
-div.dtsp-searchPane div.dtsp-topRow {
-  padding: 0px !important;
-  margin: 0px;
-  margin-bottom: 0.5rem;
-}
-div.dtsp-searchPane div.dtsp-topRow div.dtsp-subRows {
-  padding: 0px !important;
-  text-align: right;
-}
-div.dtsp-searchPane div.dtsp-topRow div.row {
+table.search-results {
   width: 100%;
+  table-layout: auto;
 }
-div.dtsp-searchPane thead {
+.filter .compact:checked ~ .table-content ~ .paragraph {
   display: none;
 }
-div.dtsp-searchPane .mb-3 {
-  margin-bottom: none !important;
-}
-div.dtsp-searchPane .col-sm-12 {
-  padding: 5px;
-}
-div.dtsp-searchPane .input-group {
-  padding: 0px !important;
-}
-div.dtsp-searchPane .input-group .input-group-append {
-  display: inline-block;
-}
-div.dtsp-searchPane div.dataTables_scrollHead {
+      #DT th {
+        width: auto !important;
+      }
+      .dropdown-content:not(.active),
+.dropdown-content.active {
   display: none;
 }
-div.dtsp-searchPane div.dataTables_scrollBody {
-  padding: 2px;
-  border: 2px #f0f0f0 solid;
-  border-radius: 4px;
-}
-div.dtsp-searchPane div.dataTables_scrollBody:hover {
-  border: 2px solid #cfcfcf !important;
-}
-div.dtsp-searchPane div.dataTables_scrollBody table tbody tr span.badge {
-  float: right;
-  min-width: 30px;
-  display: inline-block;
-  line-height: 1;
-}
-div.dtsp-searchPane div.dataTables_scrollBody table tbody tr td.dtsp-countColumn {
-  text-align: right;
-}
-div.dtsp-searchPane .dtsp-searchIcon {
-  display: block;
-  position: relative;
-  padding: 18px 13px;
-}
-div.dtsp-searchPane div.dataTables_wrapper div.dataTables_filter {
+#tab-2 {
   display: none;
 }
-div.dtsp-searchPane div.dataTables_wrapper div.row {
-  margin-left: -7px;
-  margin-right: -7px;
+    </style>
+
+     
+  </head>
+   <body class="p-0 m-auto">
+        <!-- Header Navigation bar start -->
+
+        <!-- Header Navigation bar end -->
+      <!-- Main Content-->
+ <body>
+    
+     <section class="logo">
+        <div class="container" style="width: 100% !important; max-width: 100% !important; padding-left: 30px;">
+            <div class="row">
+                <div class="logo-ssg"> 
+                <a href="https://www.gov.sg/" target="_blank" rel="noreferrer" style="color:#484848; text-decoration: none">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAnCAYAAABjYToLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAcASURBVFhH7Zh7bFN1FMfvq4/bdV1Lt8EYj8FQEIUpxMAfqBM0gkLkJcmUSNSoCAnKQxSVQFRiID4mMAbBBxBFYrIgAQkqb3EB55gJMh6Dscm6Utqtt+3a3tv23us5N7826x5th48/1E9y9rvn/O7W78753fP73VL/8z//VWgy3jKuwuK3OZp6maZoCwlpKJR6XaLUUyfD0qdlbY5qCEXAZG0yA25ZWEP+iGKTXnmHp5gyEqKccuzCiZB4YmuH7zD64wwGeUdIuAiXLjA/2N8jzFEwYhzFKLt5mhlJQhqSqop7gx2Hj0dC55Zn2yYU6XQTdRRtItOUX5EPR1S16nZn05fghsDSCuxrxlgwK1ghGfHDzWAGMAnsJpiwymIvGc5yg8fqDVM6iwyryqWTorQ4k9KmFOYaNHw2pdJL8TpGURyO9THps9GcfnnXrCHbA74n5psty400NdqnyFdBxPE9wcCV5RbrjPEG41S8J0qpoR0B/4LXfO4fwO0A61FcSmHaOtKpX/A0PZGEekWQ5aaZN2+seMDIBx7hTRPvNRpew0yhkFNieHdjNOJ9OjtncTyWThyWplfW2mxNOpouJm6P/CyJdR/7ffvX+NoPrLLaxiy05FTAEykua/d8UGrgS7IYJm8YpxuXzTDSh35hywM8fz+KG2swTK8Nxb5rUiLt8GewrEkwZLxl+rNsToRSms8MHLTuUixSB+vINZTTTSu35a5+xet5BzOJ992m00+eazJP/UjwbkAfxb1hy3kL/4TmdiGlsO/D4uxSp2Nuv5Yrz81xO1e65JiTTCUxkGF1+EHzTOay05K4H2NWli16z2Zfsd7vLdduAnCd2VkmqyEaORr3x7J8CVwm9UAkpbAxBkP+EEZ/DS6rsxTuiIVhsBclcT4abSzW6e14rafpohpRbNEmgAKWu6OEM476XYmdJiFqblb28+t8XmwbGgvNOQ/BgL+flLWUwvJoetHO/rnHHIXFn+PY9UnEDG4LCCenGPkZJNSNe3n9hJqwWENcKodhrVaGGRAv8SiD7m4YbGBG9OOkXWOiqobrI5IAi/zgGSm852g4tO+QGDy03tf++TSXc8NOe/9nsWx4b0hVRCyV9osEjqJzrkYjbcTVKDXyJW5FbsRrG8Pkw5ADpkc/TkphVR2+VwodjXMedrdUTnM7PgGrnNvWWv6kx7meoeljPxUULoyLQo6Gw5fuN5rGE7dXjAxtaVdkbMZxMFuZl3KRz1MPw1WwWrBfwc69brU2NRYOK3vVYtvVubTQUIUD4WA9Pn0kpHEtFmudAn2NuN3wyPJlcplEulKGwdxgDrA22CuHrTDbT1pp9gWc7MwSr3vXh/1yZxFXA/fQ9/3eE6P1+ntIqBv7Qh0XYAiC4ZaWIO0aA7SufLmgaCHPUrUMRQ/Wop2oDPiqZvHmAcVcsgDc2JdlW++CzGKvSlAdDl8YwulK8DSyOSicgRCuQVGbJGQiTDtz5bJcJXGTwM4Ppwf/TJN5HglpYLw+KjVM5k2Pk5AGZnFbJHgxl2WHlt10rYaQBwzXW1L3T7klIS2FxZONNP0pcZNojkUby33CwXf75T7DUnRi8cbjG+x5L3WOI2cj0jlKVpvqo5HdVaK/GUI3wLBxR3E+TtpjD2TrR9gvJxE3AS72FW2eT7bk5S/Crk/CWvwpj6tib37B0s5xBLMFO8gH1ZHQKXCvgOHZLEAsiZSlbB4yxNaTKGRrwLf37X72x7p++DpB+Hq7PX921zhS7vd+BaJwsWNzxVMtPlgorhsphbGyrsenCUsVVBQBtxwS0sCdwE/F2rrGcb1Nv9m6bn2g/Qi4l8CwdJglLF+P57GMFn9XDoZDdQuyLaXETdAci92Yx2ePJm5C0FR3y2ZSPuyHDWB4BktJujWmax80ottZaXzr9ZW1Awdrx5fOgODDPE01mWjavKTNc7xBkbAFYHZawfDJ84El9aveSJcxBV8kyHWCFlbBD+iGIxb1zPO6voGtqxxEYXawR8WzhMIyEoWkEybDllJBrhNMYvS46SbAJ3FB242NcFQ+IMsyZgiPSriWcDvD5pmxoDhp+9jOoL/5RbPlUSPNFJAQPvYOKFe7nWWH4YK/L9pRcdYv1MFU/IkTwLCMCtgtkVYYoI5kuJqRBsP8eLMs4riiTQHftjv1+qGPupwbnWKoQVXV32AKM4X7Xq+vZZmSkbBvpZBQqs9SB3PcgxiA7BnhHEVNdP2+VlDlJhCFZ6vrYNiTVLznz5JpuwhP97RsqhbFNcSn3KqWFPyBpUNReBL5y+hLH/ODuIqqYOBNfC/EEwLEsEFiT+rz4k5HJqWMgyWK7BeD5z0x9ZfTktTiUmOYLXwvhBf1v5a+fneB4D+D31fg2R7L16dvcf4JUGBfMv5vgKL+ABc6C2QpTdaQAAAAAElFTkSuQmCC">
+                    <span>A Singapore Government Agency Website</span>
+                    </a>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Header and Header Title-->
+      <!-- Print Header-->
+
+      <div class="print-header visible-print-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12"><img src="assets//images/ip4-logo.jpg"></div> 
+          </div>
+        </div>
+      </div>
+      <div class="inside-header" style="height: auto;">
+        <div class="header-top hidden-print">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-4 col-xs-12">
+				          <div><a class="ip4Logo" href="./"></a>  
+                </div>
+              </div> 
+               <div class="col-sm-8 col-xs-12 text-right">
+                      <div class="dropdown user-menu"><a class="dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome! Joseph</a>
+                        <ul class="dropdown-menu" id="userDropdown" aria-labelledby="userMenu">
+                          <li><a href="./">Edit Profile</a></li>
+                          <li><a href="./">My Dashboard</a></li>
+                          <li><a href="./">Logout</a></li>
+                        </ul>
+                      </div>
+                    </div>
+            </div> 
+          </div>
+        </div> 
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="headerLeftDesktop header-title">
+                <div class="header-title-content"> 
+                  <div class="row">
+                    <div class="col-md-12">
+                    <h1>Search and Enquiry</h1> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 100px"><div class="container" >
+      
+          
+
+             <div class="panel-group" id="accordion">
+             </div>
+              
+                <div class="panel panel-default" id="container1">
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" href="#collapse1">
+                            <div class="panel-title"><h4>Search Results</h4></div>
+                        </a>
+                    </div>
+                    
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="p-5"> 
+                          
+                            <div class="form-group">
+
+                                    
+          
+                                      <h3 style="color: #36399b;">3 results found</h3>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                      <div class="row">
+                                          <div class="col-sm-4">
+                                              <div class="filterGroup">
+                                                <label for="inputField">List View </label>
+                                                  <select class="form-control" id="display-mode" onchange="toggleThumbnails()">
+                                                      <option value="textthumbnails">Text and Thumbnails</option>
+                                                      <option value="text">Text Only</option>
+                                                      <option value="compact">Compact View</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                              <div class="filterGroup">
+                                                  <label>Filter by</label>
+                                                  <select class="form-control" id="assignTo1" name="assignTo1">
+                                                      <option value="">IP Status</option>
+                                                      <option>Publication Date</option>
+                                                      <option>Filing Date</option>
+                                                      <option>Priority Claim Date</option>
+                                                      <option>Applicant Name</option>
+                                                      <option>Inventor Name</option>
+                                                      <option>IPC</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                              <div class="filterGroup">
+                                                  <label>Sort By</label>
+                                                  <select class="form-control" id="assignTo2" name="assignTo2">
+                                                      <option value="">Journal Date</option>
+                                                      <option>Priority Claim Date</option>
+
+                                                  </select>
+                                               
+                                          
+                                                  
+                                                    <div class="col-sm-4">
+                                                      <div class="filterGroup" id="filterBy">
+                                                        <label for="multiselectSample">Filter</label>
+                                                        <select class="selectpicker" multiple data-live-search="true">
+                                                          <optgroup label="">
+                                                          <option disabled><strong>Filter By APPLICATION STATUS</strong></option>
+                                                        </optgroup>
+                                                        <option>Abandoned (Extension of Time possible)</option>
+                                                        <option>Abandoned</option>
+                                                        <option>Abandoned (Extension of Time Pending)</option>
+                                                        <option>Expired</option>
+                                                        <option>Lapsed</option>
+                                                        <option>Lapsed (Late Renewal Possible)</option>
+                                                        <option>Lapsed (Restoration Possible)</option>
+                                                        <option>Lapsed (Restoration Pending)</option>
+                                                        <option>Patent In Force</option>
+                                                        <option>Pending (Not Published)</option>
+                                                        <optgroup label="">
+                                                          <option disabled><strong>Filter By IPC</strong></option>
+                                                        </optgroup>
+                                                        <option>8413 3/407</option>
+                                                        <option>AA43B13/20</option>
+                                                        <option>A092 1/12</option>
+                                                        <option>CM01 /10</option>
+                                                        <option>TT01/200</option>
+                                                        <option>B413 3/407</option>
+                                                        <option>A43B13/20</option>
+                                                        <option>A092 1/12</option>
+                                                        <option>CM01 /10</option>
+                                                        <option>TT01/200</option>
+                                                        <optgroup label="">
+                                                          <option disabled><strong>Applicant/Inventor Name</strong></option>
+                                                        </optgroup>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                        <option>10</option>
+                                                      </select>
+                                                      </div> 
+                                                    </div>
+                                                  </div>
+                                                  
+                                                
+              
+                                    </br>
+                                                                        <!-- Buttons -->
+                              <div class="text-left">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trackselectedIPs">Track Selected IPs</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#export">Export</button>
+                              </div>
+                            </div>
+                              <script>
+                                function showjustify() {
+                                  $("#trackselectedips").toggle();
+                                }
+                              
+                                function showremedy() {
+                                  $("#export").toggle();
+                                }
+                              </script>
+                                    </br>
+                                  </br>
+                                  <div class="col-sm-12 col-md-6"><div class="table-responsive" style="overflow-y: scroll; height: 1000px; float: left"> 
+                                    
+                                    <table class="table border default-table" id="DT">
+                                
+
+                                    </br>
+                            
+                                    <thead>
+                                      <tr>
+                                      <th width="8%"></th>
+                                      <th width="8%"></th>
+                                      <th width="84%"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                      <tr onclick="rowClicked(this,)" data-tab-id="tab-1" class="selected">
+                                        <td data-title="Select">
+                                          <div class="checkbox checkbox-info">
+                                            <input type="checkbox" id="objbox1" value="">
+                                            <label for="objbox1"></label>
+                                          </div>
+                                        </td>
+                                        <td data-title="table-drawing" id="table-drawing">
+                                          
+                                          <p>(DRAWING IMAGE)</p>
+                                        </td>
+                                        <td data-title="Objection">
+                                          <p><strong>1. Novel aerify snow boots</strong></p>
+                                          <p>10202002094R・DONYANG BUILDING</p>
+                                          <p>Priority Claim Date: 2019-11-11・Journal Date: 2020-01-16</p>
+                                          <div class="paragraph">
+                                          <p>The utility model discloses a novel aerify snow booys, including the inflatable packer, the inflatable packer front end is a circular wear structure, and the unflatable packer
+                                            rear end is the triangle-shaped structure
+                                          </p>
+                                        </div>
+                                        </td>
+                                      </tr>
+                                      <tr onclick="rowClicked(this)" data-tab-id="tab-2">
+                                        <td data-title="Select">
+                                          <div class="checkbox checkbox-info">
+                                            <input type="checkbox" id="objbox2" value="">
+                                            <label for="objbox2"></label>
+                                          </div>
+                                        </td>
+                                        <td data-title="table-drawing" id="table-drawing">
+                                          <p>(DRAWING IMAGE)</p>
+                                        </td>
+                                        <td data-title="Objection">
+                                          <p><strong>2. SEPARATE BOOTS</strong></p>
+                                          <p>10202002094A・KIM YONG JUN</p>
+                                          <p>Priority Claim Date: 2019-11-11・Journal Date: 2020-01-16</p>
+                                          <div class="paragraph">
+                                          <p>Leather boots are provided, which combine the bootys part and the shoes part when in use and separate the boots part and the shoes pa...
+                                          </p>
+                                        </div>
+                                        </td>
+                                      </tr>
+                                      <tr onclick="rowClicked(this)" data-tab-id="tab-2">
+                                        <td data-title="Select">
+                                          <div class="checkbox checkbox-info">
+                                            <input type="checkbox" id="objbox3" value="">
+                                            <label for="objbox3"></label>
+                                          </div>
+                                        </td>
+                                        <td data-title="table-drawing" id="table-drawing">
+                                          <p>(DRAWING IMAGE)</p>
+                                        </td>
+                                        <td data-title="Objection">
+                                          <p><strong>3. Refrigerator</strong></p>
+                                          <p>10202002094R・STATE CORP CHINA</p>
+                                          <div class="paragraph">
+                                          <p>Priority Claim Date: 2019-11-11・Journal Date: 2020-01-16</p>
+                                          <p>The utility model discloses a novel aerify snow booys, including the inflatable packer, the inflatable packer front end is a circular wear structure, and the unflatable packer
+                                            rear end is the triangle-shaped structure
+                                          </p>
+                                        </div>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            <div>
+                              <!-- Nav tabs -->
+                              <div class="col-sm-12 col-md-6" ><ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#Bibliographic-data" aria-controls="home" role="tab" data-toggle="tab">Bibliographic data</a></li>
+                                <li role="presentation"><a href="#Description" aria-controls="profile" role="tab" data-toggle="tab">Description</a></li>
+                                <li role="presentation"><a href="#Claims" aria-controls="messages" role="tab" data-toggle="tab">Claims</a></li>
+                                <li role="presentation"><a href="#Drawings" aria-controls="settings" role="tab" data-toggle="tab">Drawings</a></li>
+                              </ul>
+                            
+                              <!-- Tab panes -->
+                              <div class="tab-content" id="tab-1">
+                                <div role="tabpanel" class="tab-pane active" id="Bibliographic-data"> 
+                                  <ul style="margin-top: 30px;">  
+                                    <li>
+                                      <label for="name" class="bold-label">Application Number</label>
+                                      <span>10202002094R</span>
+                                    </li>
+                                    <li>
+                                      <label for="email" class="bold-label">Application Status</label>
+                                      <span>Pending (Published)</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Filing Date</label>
+                                      <span>2018-1-16</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Lodgement Date</label>
+                                      <span>2020-01-16</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Declaration of Priority</label>
+                                      <span>10202002094R . 2019-11-11 . China</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Title of Invention</label>
+                                      <span>Boots Design</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Applicant Name</label>
+                                      <span>DONYANG BUILDING</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Sole Proprietor or Partner's Name</label>
+                                      <span>David Tan</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Agent UEN/Company Code</label>
+                                      <span>C10001212Z</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Agent Name</label>
+                                      <span>BAO HUIZHONG</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Action Representing</label>
+                                      <span>-</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Representative or C/O Name</label>
+                                      <span>BAO HUIZHONG; WU JIANGPING</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Inventor(s)</label>
+                                      <span>David Tan</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">International Patent Classification</label>
+                                      <span>A43B13/20;</span>
+                                    </li>
+                                    <li>
+                                      <label for="message" class="bold-label">Drawings</label>
+                                      <span>-</span>
+                                    </li>
+
+                                  </ul>
+                                </div>
+                                
+                                <div role="tabpanel" class="tab-pane" id="Description">
+                                  <ul style="margin-top: 30px; ">TECHNICAL FIELD
+
+                                  The Utility model relates snow boots technology, specifically a new inflatable snow boots. Background technique
+                                  Snow boots winter season as a practical footwear, popular in recent years. However, existing municipal court in snow deep snow boots when walking area, there will be a security risk. Therefore, the prior art still has the following problems:
+                                  1. The snow is not easy to pass;
+                                  2. Waterproof performance is poor;
+                                  3. Using more simple;
+                                  4. Inconvenient to use</div>
+                                <div role="tabpanel" class="tab-pane" id="Claims">
+                                  <ul style="margin-top: 30px;">1. A New inflatable snow boots, characterised by: including inflatable mattress, inflatable cushion front-end structure of a circular arc, inflatable cushions backend triangular structure, inflatable bottom portion is provided with a wear-resistant reinforcing layer, intermediate inflatable mattress has snow boots place unit, placed on the surface of the snow boots with a plurality of concave portions, snow boots, snow boots placed in the unit in place, and with a bandage fixed.
+                                  2. According to the new inflatable snow boots as claimed in claim 1, characterised in that: said inflatable cushions for snow boots twice the area of the sole.
+                                  3. According to the new inflatable snow boots according to claim 2, wherein;  the sole including the neel of the snow boots, the foot and front foot, with a plurality of circular projections block heel and the front food, arranged along</div>
+                                </ul>
+                                  <div role="tabpanel" class="tab-pane" id="Drawings"> <ul style="margin-top: 30px;">-
+
+                                    DRAWING IMAGES</div>
+                              </div>
+                            
+                            </div>
+
+                            <div class="col-sm-12 col-md-6" >
+                                          <!-- Tab panes 2 -->
+                                          <div class="tab-content" id="tab-2">
+                                            <div role="tabpanel" class="tab-pane active" id="tab-2-Bibliographic-data"> 
+                                              <ul style="margin-top: 30px;">  
+                                                <li>
+                                                  <label for="name" class="bold-label">Application Number</label>
+                                                  <span>10202002094A</span>
+                                                </li>
+                                                <li>
+                                                  <label for="email" class="bold-label">Application Status</label>
+                                                  <span>Pending (Published)</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Filing Date</label>
+                                                  <span>2018-1-16</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Lodgement Date</label>
+                                                  <span>2020-01-16</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Declaration of Priority</label>
+                                                  <span>10202002094R . 2019-11-11 . China</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Title of Invention</label>
+                                                  <span>Boots Design</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Applicant Name</label>
+                                                  <span>DONYANG BUILDING</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Sole Proprietor or Partner's Name</label>
+                                                  <span>David Tan</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Agent UEN/Company Code</label>
+                                                  <span>C10001212Z</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Agent Name</label>
+                                                  <span>BAO HUIZHONG</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Action Representing</label>
+                                                  <span>-</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Representative or C/O Name</label>
+                                                  <span>BAO HUIZHONG; WU JIANGPING</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Inventor(s)</label>
+                                                  <span>David Tan</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">International Patent Classification</label>
+                                                  <span>A43B13/20;</span>
+                                                </li>
+                                                <li>
+                                                  <label for="message" class="bold-label">Drawings</label>
+                                                  <span>-</span>
+                                                </li>
+          
+                                              </ul>
+                                            </div>
+                                            
+                                            
+                                            <div role="tabpanel" class="tab-pane" id="tab-2-Description">
+                                              <ul style="margin-top: 30px;">TECHNICAL FIELD
+          
+                                              The Utility model relates snow boots technology, specifically a new inflatable snow boots. Background technique
+                                              Snow boots winter season as a practical footwear, popular in recent years. However, existing municipal court in snow deep snow boots when walking area, there will be a security risk. Therefore, the prior art still has the following problems:
+                                              1. The snow is not easy to pass;
+                                              2. Waterproof performance is poor;
+                                              3. Using more simple;
+                                              4. Inconvenient to use
+                                            </ul>
+                                            </div>
+                                            <div role="tabpanel" class="tab-pane" id="Claims">
+                                              <ul style="margin-top: 30px; ">1. A New inflatable snow boots, characterised by: including inflatable mattress, inflatable cushion front-end structure of a circular arc, inflatable cushions backend triangular structure, inflatable bottom portion is provided with a wear-resistant reinforcing layer, intermediate inflatable mattress has snow boots place unit, placed on the surface of the snow boots with a plurality of concave portions, snow boots, snow boots placed in the unit in place, and with a bandage fixed.
+                                              2. According to the new inflatable snow boots as claimed in claim 1, characterised in that: said inflatable cushions for snow boots twice the area of the sole.
+                                              3. According to the new inflatable snow boots according to claim 2, wherein;  the sole including the neel of the snow boots, the foot and front foot, with a plurality of circular projections block heel and the front food, arranged along
+                                            </ul>
+                                            </div>
+                                            
+                                              <div role="tabpanel" class="tab-pane" id="Drawings"> 
+                                                <ul style="margin-top: 30px; ">-
+          
+                                                DRAWING IMAGES
+                                              </ul>
+                                              </div>
+                                            </div>
+                                        </table> 
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div> 
+            </div>
+          </div>
+        </div>  
+                                          
+                                          
+                                          <!-- End Objections Table -->
+                                    
+ 
+    <!-- Footer-->
+    <div class="footer hidden-print">
+      <div class="container">
+        <div class="row"> 
+          <div class="col-md-6 footerlinks">
+            
+            <ul class="footer-link" align="left">
+              <li><a href="./">Privacy Statement</a></li>
+              <li class="seperator">|</li>
+              <li><a href="./">Terms of Use</a></li>
+              <li class="seperator">|</li>
+              <li><a href="./">Rate this Service</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 copyright" align="right">
+            &copy; Copyright
+            <script type="text/javascript">document.write(new Date().getFullYear());</script>	Government of Singapore
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer-->
+    
+
+    <script src="assets/js/bootstrap.min.js"></script>   
+    <script src="assets/jquery-ui.min.js"></script>
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/custom.js"></script>  
+  
+    <script src="assets/dropzone/dist/dropzone.js"></script>
+     <script src="myassets/DataTables/datatables.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>  
+    
+    
+     <script>
+    $('#datetimepicker').datetimepicker({ 
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    forceParse: 0,
+        showMeridian: 1
+    });
+  $('#dateonly').datetimepicker({ 
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+    });
+  $('#dateonly-dr1').datetimepicker({ 
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+    });
+  $('#dateonly-dr2').datetimepicker({ 
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+    });
+  $('#timeonly').datetimepicker({ 
+        weekStart: 1,
+        todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0
+    });
+     $(document).ready(function () {
+      $("#DT").DataTable();
+    });  
+      $('select').selectpicker();
+function rowClicked(row) {
+  // Remove highlighting from previously selected row
+  var prevSelectedRow = document.querySelector('.selected');
+  if (prevSelectedRow) {
+    prevSelectedRow.classList.remove('selected');
+  }
+  // Add highlighting to clicked row
+  row.classList.add('selected');
+  // Show corresponding tab content
+  var tabContent = document.getElementById(row.dataset.tabId);
+  var allTabContents = document.querySelectorAll('.tab-content');
+  allTabContents.forEach(function(content) {
+    content.style.display = 'none';
+  });
+  tabContent.style.display = 'block';
 }
-div.dtsp-searchPane div.badge {
-  min-width: 30px;
+  window.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("DT").rows[1].click();
+  });
+function displayTabContent(row) {
+  // Remove highlighting from previously selected row
+  var prevSelectedRow = document.querySelector('.selected');
+  if (prevSelectedRow) {
+    prevSelectedRow.classList.remove('selected');
+  }
+
+  // Add highlighting to clicked row
+  row.classList.add('selected');
+
+  // Get the patent number from the first cell in the row
+  var patentNumber = row.cells[0].textContent;
+
+  // Find the corresponding tab content elements based on the patent number
+  var tabContent = row.closest('.tab-pane').querySelectorAll('.tab-content .tab-pane');
+  var targetTab = null;
+  tabContent.forEach(function(content) {
+    if (content.id.indexOf(patentNumber) > -1 && content.id.startsWith('tab1-')) {
+      targetTab = content;
+      content.style.display = 'block';
+    } else {
+      content.style.display = 'none';
+    }
+  });
 }
 
-div.dtsp-panes {
-  padding: 5px;
-  border: 2px solid #f0f0f0;
-  border-radius: 10px;
-  margin: 5px;
-  clear: both;
-}
-div.dtsp-panes div.dtsp-titleRow {
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-div.dtsp-panes div.dtsp-title {
-  float: left;
-  margin-bottom: 0px;
-  margin-top: 10px;
-  padding-left: 0;
-  padding-right: 0;
-}
-div.dtsp-panes button.dtsp-clearAll {
-  float: right;
-}
+// Add onclick event listener to all rows
+var rows = document.querySelectorAll('.patent-row');
+rows.forEach(function(row) {
+  row.onclick = function() {
+    displayTabContent(this);
+  };
+});
+  // Add onclick event listener to each row in the table
+var rows = table.querySelectorAll('tbody tr');
+rows.forEach(function(row) {
+  row.onclick = function() {
+    displayTabContent(this);
+  };
+});
+  function displayTabContent(row) {
+  // Remove highlighting from previously selected row
+  var prevSelectedRow = document.querySelector('.selected');
+  if (prevSelectedRow) {
+    prevSelectedRow.classList.remove('selected');
+  }
 
-div.dtsp-hidden {
-  display: none !important;
-}
+  // Add highlighting to clicked row
+  row.classList.add('selected');
 
-@media screen and (max-width: 767px) {
-  div.dtsp-columns-4,
-  div.dtsp-columns-5,
-  div.dtsp-columns-6 {
-    max-width: 31% !important;
-    min-width: 31% !important;
+  // Get the patent number from the first cell in the row
+  var patentNumber = row.cells[0].textContent;
+
+  // Find the corresponding tab content elements based on the patent number
+  var tabContent = row.closest('.tab-pane').querySelectorAll('.tab-content .tab-pane');
+  var targetTab = null;
+  tabContent.forEach(function(content) {
+    if (content.id.indexOf(patentNumber) > -1 && content.id.startsWith('tab1-')) {
+      targetTab = content;
+      content.style.display = 'block';
+    } else {
+      content.style.display = 'none';
+    }
+  });
+}
+$(document).ready(function(){
+  $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+    var selected = $(e.currentTarget).val();
+    if (e.currentTarget.id === 'filter-by') {
+      if (selected.includes('IP Status')) {
+        $('#filterBy').show();
+      } else {
+        $('#filterBy').hide();
+      }
+    }
+  });
+});
+function toggleThumbnails() {
+  var display = document.getElementById('display-mode').value;
+  if (display == 'thumbnails') {
+    $('.thumbnail').show();
+    $('td[data-title="table-drawing"]').hide();
+  } else if (display == 'text') {
+    $('.thumbnail').hide();
+    $('td[data-title!="table-drawing"]').show();
+    $('td[data-title="table-drawing"]').hide();
+    $('.paragraph').show(); // show the paragraph
+  } else if (display == 'compact') {
+    $('.thumbnail').hide();
+    $('td[data-title!="table-drawing"]').show();
+    $('td[data-title="table-drawing"]').hide();
+    $('.paragraph').hide(); // hide the paragraph
+  } else if (display == 'textthumbnails') {
+    $('.thumbnail').show();
+    $('td[data-title!="table-drawing"]').show();
+    $('td[data-title="table-drawing"]').show();
+    $('.paragraph').show(); // show the paragraph
+  }
+
+  // Hide the "Drawing Images" column if the selected display mode is not "Text and Thumbnails"
+  if (display != 'textthumbnails') {
+    $('td[data-title="table-drawing"]').hide();
   }
 }
-@media screen and (max-width: 640px) {
-  div.dtsp-searchPanes {
-    flex-direction: column !important;
-  }
+$(document).ready(function() {
+  $('#DT').DataTable().search('').draw();
+  $('#DT_filter').hide();
+});
+    // Remove the "Filter" option from the list of options when the dropdown menu is shown
+    $('.selectpicker').on('shown.bs.select', function () {
+    $(this).find('option[value="Filter"]').remove();
+  });
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "language": {
+                "search": ""
+            },
+            "dom": "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+                   "<'row'<'col-sm-12'tr>>" +
+                   "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>"
+        });
+    });
+    function toggleDropdown(containerId) {
+  var dropdown = document.getElementById(containerId);
+  dropdown.classList.toggle("show");
+}
+function toggleDropdown(id) {
+  var dropdown = document.getElementById(id);
+  dropdown.classList.toggle("show");
+}
+// Get the dropdown button element
+var listViewButton = document.getElementById("list-view-button");
 
-  div.dtsp-searchPane {
-    max-width: 98% !important;
-    min-width: 98% !important;
-  }
-}
+// Get the dropdown container element
+var listViewDropdown = document.getElementById("category-dropdown-list-view");
 
-
-table.dataTable tbody > tr.selected,
-table.dataTable tbody > tr > .selected {
-  background-color: #0275d8;
-}
-table.dataTable.stripe tbody > tr.odd.selected,
-table.dataTable.stripe tbody > tr.odd > .selected, table.dataTable.display tbody > tr.odd.selected,
-table.dataTable.display tbody > tr.odd > .selected {
-  background-color: #0272d3;
-}
-table.dataTable.hover tbody > tr.selected:hover,
-table.dataTable.hover tbody > tr > .selected:hover, table.dataTable.display tbody > tr.selected:hover,
-table.dataTable.display tbody > tr > .selected:hover {
-  background-color: #0271d0;
-}
-table.dataTable.order-column tbody > tr.selected > .sorting_1,
-table.dataTable.order-column tbody > tr.selected > .sorting_2,
-table.dataTable.order-column tbody > tr.selected > .sorting_3,
-table.dataTable.order-column tbody > tr > .selected, table.dataTable.display tbody > tr.selected > .sorting_1,
-table.dataTable.display tbody > tr.selected > .sorting_2,
-table.dataTable.display tbody > tr.selected > .sorting_3,
-table.dataTable.display tbody > tr > .selected {
-  background-color: #0273d4;
-}
-table.dataTable.display tbody > tr.odd.selected > .sorting_1, table.dataTable.order-column.stripe tbody > tr.odd.selected > .sorting_1 {
-  background-color: #026fcc;
-}
-table.dataTable.display tbody > tr.odd.selected > .sorting_2, table.dataTable.order-column.stripe tbody > tr.odd.selected > .sorting_2 {
-  background-color: #0270ce;
-}
-table.dataTable.display tbody > tr.odd.selected > .sorting_3, table.dataTable.order-column.stripe tbody > tr.odd.selected > .sorting_3 {
-  background-color: #0270d0;
-}
-table.dataTable.display tbody > tr.even.selected > .sorting_1, table.dataTable.order-column.stripe tbody > tr.even.selected > .sorting_1 {
-  background-color: #0273d4;
-}
-table.dataTable.display tbody > tr.even.selected > .sorting_2, table.dataTable.order-column.stripe tbody > tr.even.selected > .sorting_2 {
-  background-color: #0274d5;
-}
-table.dataTable.display tbody > tr.even.selected > .sorting_3, table.dataTable.order-column.stripe tbody > tr.even.selected > .sorting_3 {
-  background-color: #0275d7;
-}
-table.dataTable.display tbody > tr.odd > .selected, table.dataTable.order-column.stripe tbody > tr.odd > .selected {
-  background-color: #026fcc;
-}
-table.dataTable.display tbody > tr.even > .selected, table.dataTable.order-column.stripe tbody > tr.even > .selected {
-  background-color: #0273d4;
-}
-table.dataTable.display tbody > tr.selected:hover > .sorting_1, table.dataTable.order-column.hover tbody > tr.selected:hover > .sorting_1 {
-  background-color: #026bc6;
-}
-table.dataTable.display tbody > tr.selected:hover > .sorting_2, table.dataTable.order-column.hover tbody > tr.selected:hover > .sorting_2 {
-  background-color: #026cc8;
-}
-table.dataTable.display tbody > tr.selected:hover > .sorting_3, table.dataTable.order-column.hover tbody > tr.selected:hover > .sorting_3 {
-  background-color: #026eca;
-}
-table.dataTable.display tbody > tr:hover > .selected,
-table.dataTable.display tbody > tr > .selected:hover, table.dataTable.order-column.hover tbody > tr:hover > .selected,
-table.dataTable.order-column.hover tbody > tr > .selected:hover {
-  background-color: #026bc6;
-}
-table.dataTable tbody td.select-checkbox,
-table.dataTable tbody th.select-checkbox {
-  position: relative;
-}
-table.dataTable tbody td.select-checkbox:before, table.dataTable tbody td.select-checkbox:after,
-table.dataTable tbody th.select-checkbox:before,
-table.dataTable tbody th.select-checkbox:after {
-  display: block;
-  position: absolute;
-  top: 1.2em;
-  left: 50%;
-  width: 12px;
-  height: 12px;
-  box-sizing: border-box;
-}
-table.dataTable tbody td.select-checkbox:before,
-table.dataTable tbody th.select-checkbox:before {
-  content: ' ';
-  margin-top: -6px;
-  margin-left: -6px;
-  border: 1px solid black;
-  border-radius: 3px;
-}
-table.dataTable tr.selected td.select-checkbox:after,
-table.dataTable tr.selected th.select-checkbox:after {
-  content: '\2714';
-  margin-top: -11px;
-  margin-left: -4px;
-  text-align: center;
-  text-shadow: 1px 1px #B0BED9, -1px -1px #B0BED9, 1px -1px #B0BED9, -1px 1px #B0BED9;
-}
-
-div.dataTables_wrapper span.select-info,
-div.dataTables_wrapper span.select-item {
-  margin-left: 0.5em;
-}
-
-@media screen and (max-width: 640px) {
-  div.dataTables_wrapper span.select-info,
-  div.dataTables_wrapper span.select-item {
-    margin-left: 0;
-    display: block;
-  }
-}
-table.dataTable tbody tr.selected,
-table.dataTable tbody th.selected,
-table.dataTable tbody td.selected {
-  color: white;
-}
-table.dataTable tbody tr.selected a,
-table.dataTable tbody th.selected a,
-table.dataTable tbody td.selected a {
-  color: #a2d4ed;
-}
-
-
+// Attach an event listener to the button
+listViewButton.addEventListener("click", function() {
+  listViewDropdown.classList.toggle("show");
+});
+$('#show-tab-2').on('click', function() {
+  $('#tab-2').show();
+});
+</script>
+  </body>
+</html>
