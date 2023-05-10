@@ -29,6 +29,8 @@
     <script src="./IP4SG - An eServices Portal by IPOS_files/bootstrap.min.js.下载"></script>
 
 <script src="./IP4SG - An eServices Portal by IPOS_files/jquery.min.js.下载"></script>
+
+    
     <style>
       ul {
          list-style: none outside none;
@@ -240,6 +242,9 @@ table.search-results {
           </div>
         
       <div class="row" style="margin-bottom: 100px"><div class="container" >
+      
+          
+
              <div class="panel-group" id="accordion">
              </div>
               <div class="panel panel-default" id="container1">
@@ -249,6 +254,7 @@ table.search-results {
                             <div class="panel-title"><h4>Search Results</h4></div>
                         </a>
                     </div>
+                    
                     <div id="collapse1" class="panel-collapse collapse in">
                         <div class="p-5"> 
                           
@@ -507,6 +513,7 @@ table.search-results {
                                       <label for="message" class="bold-label">Drawings</label>
                                       <span>-</span>
                                     </li>
+
                                   </ul>
                                 </div>
                                 
@@ -637,7 +644,7 @@ table.search-results {
             </div>
           </div>
         </div>
-                         
+                          
                                           <!-- End Objections Table -->
     <!-- Footer-->
     <div class="footer hidden-print">
