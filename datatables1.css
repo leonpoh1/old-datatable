@@ -170,6 +170,7 @@ table.search-results {
 #tab-2 {
   display: none;
 }
+
     </style>
 
      
@@ -226,11 +227,11 @@ table.search-results {
         </div> 
         
         <div class="container">
-          <div class="row">
+          
             <div class="col-xs-12">
               <div class="headerLeftDesktop header-title">
                 <div class="header-title-content"> 
-                  <div class="row">
+                  
                     <div class="col-md-12">
                     <h1>Search and Enquiry</h1> 
                     </div>
@@ -239,16 +240,15 @@ table.search-results {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        
       <div class="row" style="margin-bottom: 100px"><div class="container" >
       
           
 
              <div class="panel-group" id="accordion">
              </div>
-              
-                <div class="panel panel-default" id="container1">
+              <div class="panel panel-default" id="container1">
+                
                     <div class="panel-heading">
                         <a data-toggle="collapse" href="#collapse1">
                             <div class="panel-title"><h4>Search Results</h4></div>
@@ -300,6 +300,8 @@ table.search-results {
                                                   </select>
                                                </div>
                                                </div>
+                                               
+                                               
                                           
                                                   
                                                     <div class="col-sm-4">
@@ -348,31 +350,30 @@ table.search-results {
                                                       </select>
                                                       </div> 
                                                     </div> 
-                                                   
+                                                  
+                                                  
+                                                  </br>
+                                                </br>
+                                              </br>
+                                            </br>
+
+                                          
+                                                      <div class="col-sm-4">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trackselectedIPs">Track Selected IPs</button>
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#export">Export</button>
+                                                  </div>
                                                   
                                                 
-              
-                                    </br>
-                                                                        <!-- Buttons -->
-                                                                    
-                              <div class="text-left">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trackselectedIPs">Track Selected IPs</button>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#export">Export</button>
-                              </div>
-                            </div>
-                          </div>
-                            
-                              <script>
-                                function showtrackselectedips() {
-                                  $("#trackselectedips").toggle();
-                                }
-                              
-                                function showexport() {
-                                  $("#export").toggle();
-                                }
-                              </script>
-                                    </br>
-                                  </br>
+                                                
+                                              
+                                            
+                                              
+                                              </br>
+                                              </br>
+                                                  
+                                                  
+                                              <div class="col-sm-12 col-md-12">
+                                                
                                   <div class="col-sm-12 col-md-6"><div class="table-responsive" style="overflow-y: scroll; height: 1000px; float: left"> 
                                     
                                     <table class="table border default-table" id="DT">
@@ -658,8 +659,10 @@ table.search-results {
                 </div> 
             </div>
           </div>
-        </div>  
-                                          
+        </div>
+          
+       
+                                     
                                           
                                           <!-- End Objections Table -->
                                     
@@ -912,6 +915,15 @@ listViewButton.addEventListener("click", function() {
 $('#show-tab-2').on('click', function() {
   $('#tab-2').show();
 });
+</script>
+<script>
+  function showtrackselectedips() {
+    $("#trackselectedips").toggle();
+  }
+
+  function showexopor() {
+    $("#export").toggle();
+  }
 </script>
   </body>
 </html>
