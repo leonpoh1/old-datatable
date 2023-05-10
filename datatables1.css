@@ -29,8 +29,6 @@
     <script src="./IP4SG - An eServices Portal by IPOS_files/bootstrap.min.js.下载"></script>
 
 <script src="./IP4SG - An eServices Portal by IPOS_files/jquery.min.js.下载"></script>
-
-    
     <style>
       ul {
          list-style: none outside none;
@@ -242,9 +240,6 @@ table.search-results {
           </div>
         
       <div class="row" style="margin-bottom: 100px"><div class="container" >
-      
-          
-
              <div class="panel-group" id="accordion">
              </div>
               <div class="panel panel-default" id="container1">
@@ -254,7 +249,6 @@ table.search-results {
                             <div class="panel-title"><h4>Search Results</h4></div>
                         </a>
                     </div>
-                    
                     <div id="collapse1" class="panel-collapse collapse in">
                         <div class="p-5"> 
                           
@@ -278,11 +272,11 @@ table.search-results {
                                               </div>
                                           </div>
                                           <div class="col-sm-4">
-                                              <div class="filterGroup">
+                                              <div class="filterBy">
                                                   <label>Filter by</label>
                                                   <select class="form-control" id="assignTo1" name="assignTo1">
-                                                      <option value="">IP Status</option>
                                                       <option>Publication Date</option>
+                                                      <option value="ipstatus">IP Status</option>
                                                       <option>Filing Date</option>
                                                       <option>Priority Claim Date</option>
                                                       <option>Applicant Name</option>
@@ -300,14 +294,12 @@ table.search-results {
                                                   </select>
                                                </div>
                                                </div>
-                                               
-                                               
-                                          
-                                                  
-                                                    <div class="col-sm-4">
-                                                      <div class="filterGroup" id="filterBy">
+
+                                                    <div class="col-sm-4 m-3" id="filterBy">
+                                                      <div class="filterGroup" >
+                                                        <div class="row">
                                                         <label for="multiselectSample">Filter</label>
-                                                        <select class="selectpicker" multiple data-live-search="true">
+                                                        <select class="selectpicker" multiple data-live-search="true" >
                                                           <optgroup label="">
                                                           <option disabled><strong>Filter By APPLICATION STATUS</strong></option>
                                                         </optgroup>
@@ -350,32 +342,18 @@ table.search-results {
                                                       </select>
                                                       </div> 
                                                     </div> 
-                                                  
-                                                  
-                                                  </br>
-                                                </br>
-                                              </br>
-                                            </br>
-
-                                          
-                                                      <div class="col-sm-4">
+                                                  </div> 
+                       
+                                            <div class="col-sm-4 my-5">
                                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#trackselectedIPs">Track Selected IPs</button>
                                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#export">Export</button>
                                                   </div>
-                                                  
-                                                
-                                                
-                                              
-                                            
-                                              
                                               </br>
                                               </br>
+                                              
                                                   
-                                                  
-                                              <div class="col-sm-12 col-md-12">
-                                                
+                                              <div class="col-sm-12 col-md-12">    
                                   <div class="col-sm-12 col-md-6"><div class="table-responsive" style="overflow-y: scroll; height: 1000px; float: left"> 
-                                    
                                     <table class="table border default-table" id="DT">
                                 
 
@@ -529,7 +507,6 @@ table.search-results {
                                       <label for="message" class="bold-label">Drawings</label>
                                       <span>-</span>
                                     </li>
-
                                   </ul>
                                 </div>
                                 
@@ -660,13 +637,8 @@ table.search-results {
             </div>
           </div>
         </div>
-          
-       
-                                     
-                                          
+                         
                                           <!-- End Objections Table -->
-                                    
- 
     <!-- Footer-->
     <div class="footer hidden-print">
       <div class="container">
@@ -837,18 +809,6 @@ rows.forEach(function(row) {
     }
   });
 }
-$(document).ready(function(){
-  $('.selectpicker').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-    var selected = $(e.currentTarget).val();
-    if (e.currentTarget.id === 'filter-by') {
-      if (selected.includes('IP Status')) {
-        $('#filterBy').show();
-      } else {
-        $('#filterBy').hide();
-      }
-    }
-  });
-});
 function toggleThumbnails() {
   var display = document.getElementById('display-mode').value;
   if (display == 'thumbnails') {
@@ -916,14 +876,22 @@ $('#show-tab-2').on('click', function() {
   $('#tab-2').show();
 });
 </script>
-<script>
-  function showtrackselectedips() {
-    $("#trackselectedips").toggle();
-  }
 
-  function showexopor() {
-    $("#export").toggle();
-  }
+<script>
+  $(document).ready(function() {
+  // Hide the filter dropdown on page load
+  $('#filterBy').hide();
+
+  // Show the filter dropdown when IP Status is selected
+  $('#assignTo1').change(function() {
+    console.log($(this).val());
+    if ($(this).val() == 'ipstatus') {
+      $('#filterBy').show();
+    } else {
+      $('#filterBy').hide();
+    }
+  });
+});
 </script>
   </body>
 </html>
